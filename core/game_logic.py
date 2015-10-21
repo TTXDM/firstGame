@@ -476,11 +476,14 @@ class Pai():
         score=[0,0,0,0]
         pai=self.lastOpt.pai
         if self.lastOpt.tableid==tableid and self.lastOpt.opt==opt_zua:
+            print u'自摸.'
             pai_0=sorted(self.pais[tableid]+''.join(self.lizhi[tableid]))
         else:
+            print u'放炮.'
             pai_0=sorted(self.pais[tableid]+pai+''.join(self.lizhi[tableid]))
         if pai_0!=sorted(str1.replace(',','')):
             print u'\t->客户端服务端牌面不一致。', pai_0, str1, sorted(str1.replace(',',''))
+            logging.getLogger('game').info(u'胡牌[%s][%s]%s'%(''.join(pai_0),''.join(sorted(str1.replace(',',''))),str1))
             return defer.fail(ro)
 
         flag=''

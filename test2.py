@@ -3,5 +3,7 @@
 #Author:  Administrator
 #Created: 2015/9/23 14:26
 
-for i in range(10):
-    print int(i/3), i%3
+str1='abc,ghi,,123,555,6'
+str2=sorted('abcghi1235556')
+
+print str2==sorted(str1.replace(',',''))
